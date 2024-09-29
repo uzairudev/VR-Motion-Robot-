@@ -1,0 +1,12 @@
+<launch>
+
+   <!-- turtlesim -->
+   <node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node">
+     <param name="background_r"     type="int"    value="255"/>
+     <param name="background_g"     type="int"    value="255"/>
+     <param name="background_b"     type="int"    value="255"/>
+   </node>
+   <!-- turtleMove -->
+   <node pkg="robotics" name="robotics_work" type="turtleMove.py"/>
+
+</launch>
