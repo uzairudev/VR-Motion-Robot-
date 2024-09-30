@@ -1,33 +1,44 @@
 # VR Motion Robot
 
-This project integrates a VR-based interface with a robotic turtle simulation in ROS (Robot Operating System). It utilizes both Python and C++ to manage robot motion, and Unity is used to provide a graphical interface for controlling the robot.
+This project integrates a VR-based interface with a robotic turtle simulation in ROS (Robot Operating System). It aims to explore how virtual reality can be used to control motion robots in real-time and to synchronize human movements with robot actions in a simulated or physical environment.
 
 ## Project Overview
 
-The project simulates a robotic turtle that moves within a 2D space using ROS. The turtle's movement can be controlled via a set of Python and C++ scripts, and the simulation environment is visualized using Unity. The primary goal of the project is to allow motion control of the turtle from a VR setup.
+The project involves using a VR headset to detect and map the motion of a subject (user) onto a simulated robot. The robot's movements are controlled through Python and C++ programs, while Unity is used for visualization. This technology could be applied in various industries, from manufacturing to medical robots, especially for teleoperation in hazardous environments.
 
-### Key Components
+### Key Objectives:
+- Provide an immersive VR interface for robot control.
+- Synchronize human movement with robotic actions.
+- Demonstrate robot control in a simulated environment with TurtleSim.
 
-1. **TurtleSim Node (C++)**: Manages the turtle's movement and ROS communication, including subscribing to velocity commands, publishing the turtle's pose, and handling teleportation requests.
-2. **turtleMove.py (Python)**: The Python script that publishes velocity commands to control the turtle's movement. It reads a set of predefined trajectories from CSV files and publishes corresponding movement commands to the turtle.
-3. **Unity Visualization (C#)**: Provides a graphical interface for controlling the robot using VR motion. The Unity code publishes turtle pose data to ROS topics for real-time visualization.
+### Tools and Devices
+
+1. **VR Headset** – For detecting user movements.
+2. **TurtleSim** – A 2D simulator used to visualize and test the robot's movements.
+3. **Unity** – The platform used to visualize the robot in a VR environment.
+4. **ROS (Robot Operating System)** – The middleware handling communication between the VR environment and the robot.
+
+### Implementation Steps
+
+1. **Detect the subject’s position** using the VR headset.
+2. **Gather position data** from the VR system.
+3. **Synchronize movement** with the robot by reshaping the data using a Python script, converting it to velocity and angular data.
 
 ### Project Files
 
-- **turtle.cpp & turtle.h**: These files handle the movement of the turtle within the simulation. They implement services like setting the turtle's pen, teleporting, and publishing the pose.
-- **turtleMove.py**: This Python script reads movement data from CSV files, calculates velocities and angles, and publishes these values to control the turtle's movement.
-- **roboticsProject.launch**: The ROS launch file that starts the turtle simulation and the `turtleMove` node.
-- **Unity Folder**: Contains Unity-based code to integrate the simulation with VR and visualize the robot's movement in a 3D space.
-  
+- **turtle.cpp & turtle.h**: Handle the turtle's movement and ROS communication.
+- **turtleMove.py**: Reads movement data from CSV files and sends control commands to the turtle in ROS.
+- **roboticsProject.launch**: The launch file that starts the ROS TurtleSim node and the movement control script.
+- **Unity Folder**: Contains Unity-based scripts that visualize the robot's motion in a VR setting.
 
-### How It Works
+### Technical Challenges
 
-- **ROS Turtle Simulation**: The turtle starts at a predefined position and receives velocity commands to move along specific trajectories defined in CSV files. These commands are published by the `turtleMove.py` script.
-- **Unity Visualization**: The Unity interface shows the real-time movement of the turtle based on the data from ROS. You can visualize and interact with the turtle in a VR environment.
+1. **VR Headset Compatibility**: The initial VR equipment was incompatible with our system, requiring troubleshooting and setup adjustments.
+2. **ROS Installation**: Setting up ROS on a virtual machine failed, and we had to install Linux on a separate partition to run ROS successfully.
 
-### CSV Data Structure
+### Results
 
-- The CSV files contain the data required for the turtle's movement, including:
-  - Time (seconds and nanoseconds)
-  - X and Y coordinates
-  - Rotation angles
+We successfully synchronized human movement (captured via VR) with a simulated turtle robot. The movement in VR was reflected in real-time in the TurtleSim environment, demonstrating the feasibility of controlling robots using VR.
+
+
+
