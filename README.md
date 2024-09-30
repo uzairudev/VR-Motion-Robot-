@@ -37,7 +37,7 @@ The project involves using a VR headset to detect and map the motion of a subjec
 2. **ROS Installation**: Setting up ROS on a virtual machine failed, and we had to install Linux on a separate partition to run ROS successfully.
 
 ### Results
-![Result Image](./result_image.png)
+![Experiment](./result_image.jpg)
 
 
 We successfully synchronized human movement (captured via VR) with a simulated turtle robot. The movement in VR was reflected in real-time in the TurtleSim environment, demonstrating the feasibility of controlling robots using VR.
